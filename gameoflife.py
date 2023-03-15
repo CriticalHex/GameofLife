@@ -1,5 +1,6 @@
 import pygame
 import random
+import copy
 
 
 def in_bounds(x: int, y: int, width: int, height: int):
@@ -27,7 +28,7 @@ def check_neighbors(x: int, y: int, frame: list[list[bool]], grid: list[list[boo
 
 
 def update(grid: list[list[bool]]):
-    frame = grid.copy()
+    frame = copy.deepcopy(grid)
     for i, row in enumerate(grid):
         for j, _ in enumerate(row):
             check_neighbors(j, i, frame, grid)
